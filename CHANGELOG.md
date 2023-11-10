@@ -1,5 +1,32 @@
 # Changelog
 
+## [1.1.0](https://github.com/material-components/material-web/compare/v1.0.1...v1.1.0) (2023-11-10)
+
+
+### Features
+
+* **menu:** add document-level positioning ([2b591ca](https://github.com/material-components/material-web/commit/2b591ca759ec8180659476a072db1a8b83c1ae20)), closes [#5120](https://github.com/material-components/material-web/issues/5120)
+* **menu:** add popover functionality ([7859b39](https://github.com/material-components/material-web/commit/7859b39afef3de779225dfdb87470daf1f91fc27)), closes [#2023](https://github.com/material-components/material-web/issues/2023) [#5120](https://github.com/material-components/material-web/issues/5120)
+
+
+### Bug Fixes
+
+* **behaviors:** add focusable behavior to labs ([d1ef1fe](https://github.com/material-components/material-web/commit/d1ef1febb648b7afd521e05123024f9e4c71bca0))
+* **button:** allow overriding `cursor` using CSS ([798f5ae](https://github.com/material-components/material-web/commit/798f5ae179c63d22a83ad4a7bcf8bb085541f6a1))
+* **button:** allow overriding `min-width` and `user-select` ([1852238](https://github.com/material-components/material-web/commit/18522381d8038beeb28948bf993a679cc8feb02a))
+* **button:** allow overriding `padding` and `gap` ([5bb4a42](https://github.com/material-components/material-web/commit/5bb4a422de35e953a35c032a66949cacea1e0496))
+* **button:** don't show overflowing labels ([8dcb3f6](https://github.com/material-components/material-web/commit/8dcb3f62c7ccce09290211350e418c0089265305))
+* **button:** labels not truncating, add support for multiline with `text-wrap: wrap` ([5d964ad](https://github.com/material-components/material-web/commit/5d964adcf9df7cfc4cc0b6108e378e6bc6b330fd))
+* Circular progress isn't circular in flex column display ([075119c](https://github.com/material-components/material-web/commit/075119c98fd71d3f4ec1b8c3e513e2c750e4550f))
+* **docs:** prepare docs generator for mixin version of lit analyzer ([5e0000a](https://github.com/material-components/material-web/commit/5e0000a495ae6dc836a2e7cedf9778830e326ad0))
+* **filter-chip:** reflect correct value on click event ([0b4d4c2](https://github.com/material-components/material-web/commit/0b4d4c2e07b4f6be2289733500fbba36de29a2d3))
+* **progress:** allow linear progress to fill flex containers ([a450e42](https://github.com/material-components/material-web/commit/a450e4288cdac6f61a13790f8820d57a7fb141a7)), closes [#5042](https://github.com/material-components/material-web/issues/5042)
+* **select,textfield:** native form validation shows error state ([6b5ab21](https://github.com/material-components/material-web/commit/6b5ab21332438dc971eb94b7da2271511bb99719))
+* **select:** form failure no longer throws non-focusable error ([a5a6974](https://github.com/material-components/material-web/commit/a5a6974decb19b5ce42020c3c7c5386a8b203d76)), closes [#5078](https://github.com/material-components/material-web/issues/5078)
+* **select:** select menu render is over most stacking contexts with popover ([a2b3204](https://github.com/material-components/material-web/commit/a2b32042bd51c34853a9ca7b1c7901fb69270a44))
+* **tabs:** allow changing tab padding ([dd005df](https://github.com/material-components/material-web/commit/dd005df7806002a60fe9af136387ad4623b4ae8e))
+* **tabs:** fields intended to be accessed from templates must be exported ([b7be1cb](https://github.com/material-components/material-web/commit/b7be1cbbb4e7b08421d293ba89f364632822d113))
+
 ## [1.0.1](https://github.com/material-components/material-web/compare/v1.0.0...v1.0.1) (2023-10-18)
 
 
