@@ -9,6 +9,7 @@ import '../../menu/menu.js';
 import {html, isServer, LitElement, nothing, PropertyValues} from 'lit';
 import {property, query, queryAssignedElements, state} from 'lit/decorators.js';
 import {ClassInfo, classMap} from 'lit/directives/class-map.js';
+import {styleMap} from 'lit/directives/style-map.js';
 import {html as staticHtml, StaticValue} from 'lit/static-html.js';
 
 import {Field} from '../../field/internal/field.js';
@@ -110,6 +111,12 @@ export abstract class Select extends selectBaseClass {
    */
   @property({attribute: 'menu-positioning'})
   menuPositioning: 'absolute' | 'fixed' | 'popover' = 'popover';
+
+  /**
+   * Clamps the menu-width to the width of the select.
+   */
+  @property({type: Boolean, attribute: 'clamp-menu-width'})
+  clampMenuWidth = false;
 
   /**
    * The max time between the keystrokes of the typeahead select / menu behavior
@@ -259,6 +266,10 @@ export abstract class Select extends selectBaseClass {
   private isCheckingValidity = false;
   private isReportingValidity = false;
   private customValidationMessage = '';
+  // have to keep track of previous open because it's state and private and thus
+  // cannot be tracked in PropertyValues<this> map.
+  private prevOpen = this.open;
+  private selectWidth = 0;
 
   /**
    * Selects an option given the value of the option, and updates MdSelect's
@@ -389,6 +400,13 @@ export abstract class Select extends selectBaseClass {
       this.initUserSelection();
     }
 
+    // we have just opened the menu
+    if (this.prevOpen !== this.open && this.open) {
+      const selectRect = this.getBoundingClientRect();
+      this.selectWidth = selectRect.width;
+    }
+
+    this.prevOpen = this.open;
     super.update(changed);
   }
 
@@ -526,6 +544,10 @@ export abstract class Select extends selectBaseClass {
       part="menu"
       exportparts="focus-ring: menu-focus-ring"
       anchor="field"
+      style=${styleMap({
+        'min-width': `${this.selectWidth}px`,
+        'max-width': this.clampMenuWidth ? `${this.selectWidth}px` : undefined,
+      })}
       .open=${this.open}
       .quick=${this.quick}
       .positioning=${this.menuPositioning}
