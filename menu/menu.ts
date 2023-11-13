@@ -21,6 +21,18 @@ declare global {
 }
 
 /**
+ * Allow popover show and hide functions. See
+ * https://developer.mozilla.org/en-US/docs/Web/API/Popover_API
+ * go/typescript-reopening.
+ * Without this, closure will rename these functions as they have not made it
+ * into the dom lib types yet.
+ */
+declare interface HTMLElementWithPopoverAPI extends MdMenu {
+  showPopover: () => void;
+  hidePopover: () => void;
+}
+
+/**
  * @summary Menus display a list of choices on a temporary surface.
  *
  * @description
